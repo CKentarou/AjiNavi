@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/bootstrap.html :: head"></head>
+<body>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <h2>入力フォーム</h2>
+        <form th:action="@{/confirm-regist-review}" th:object="${reviewForm}" method="post">
+            <div class="form-group">
+                <label for="restaurantId">Restaurant ID</label>
+                <input type="number" class="form-control" id="restaurantId" th:field="*{restaurantId}"
+                       placeholder="Enter restaurant ID">
+            </div>
+
+            <div class="form-group">
+                <label for="userId">User ID</label>
+                <input type="number" class="form-control" id="userId" th:field="*{userId}" placeholder="Enter user ID">
+            </div>
+
+            <div class="form-group">
+                <label for="visitDate">User ID</label>
+                <input type="Date" class="form-control" id="visitDate" th:field="*{visitDate}"
+                       placeholder="Enter visit date">
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="number" class="form-control" id="rating" th:field="*{rating}" placeholder="Enter raiting">
+            </div>
+
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea class="form-control" id="comment" th:field="*{comment}" rows="3"
+                          placeholder="Enter your comment"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
