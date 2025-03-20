@@ -8,7 +8,7 @@
         <form th:action="@{/confirm-regist-review}" th:object="${reviewForm}" method="post">
             <div class="form-group">
                 <label for="restaurantId">Restaurant ID</label>
-                <input type="text" class="form-control" id="restaurantId" th:field="*{restaurantId}"
+                <input type="number" class="form-control" id="restaurantId" th:field="*{restaurantId}"
                        placeholder="Enter restaurant ID">
                 <div th:if="${#fields.hasErrors('restaurantId')}" th:errors="*{restaurantId}"></div>
             </div>
