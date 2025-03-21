@@ -34,9 +34,9 @@ public class RegistController {
 
         service.regist(r);
 
-        model.addAttribute("msg", "レビュー登録が完了しました。");
+        model.addAttribute("msg", "(レビュー登録)");
 
-        return "complete-regist-review";
+        return "complete";
     }
 
 }
