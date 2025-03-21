@@ -1,5 +1,6 @@
 package com.example.AjiNavi.controller;
 
+import com.example.AjiNavi.entity.Review;
 import com.example.AjiNavi.form.ReviewForm;
 import com.example.AjiNavi.service.RegistService;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +30,11 @@ public class RegistController {
             return "regist-review";
         }
 
-        String msg = service.regist();
-        model.addAttribute("msg", msg);
+        Review r = form.toReview();
+
+        service.regist(r);
+
+        model.addAttribute("msg", "レビュー登録が完了しました。");
 
         return "complete-regist-review";
     }

@@ -1,5 +1,6 @@
 package com.example.AjiNavi.form;
 
+import com.example.AjiNavi.entity.Review;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.sql.Date;
@@ -23,4 +24,15 @@ public class ReviewForm {
 
     @Size(min=1, max=128, message="1文字から128文字で指定してください。")
     private String comment;
+
+    public Review toReview() {
+        Review r = new Review();
+        r.setUserId(this.getUserId());
+        r.setRestaurantId(this.getRestaurantId());
+        r.setVisitDate(this.getVisitDate());
+        r.setRating(this.getRating());
+        r.setComment(this.getComment());
+
+        return r;
+    }
 }
