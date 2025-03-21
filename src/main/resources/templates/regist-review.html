@@ -15,13 +15,13 @@
 
             <div class="form-group">
                 <label for="userId">User ID</label>
-                <input type="number" class="form-control" id="userId" th:field="*{userId}" placeholder="Enter user ID">
+                <input type="text" class="form-control" id="userId" th:field="*{userId}" placeholder="Enter user ID">
                 <div th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></div>
             </div>
 
             <div class="form-group">
-                <label for="visitDate">User ID</label>
-                <input type="Date" class="form-control" id="visitDate" th:field="*{visitDate}"
+                <label for="visitDate">Visit Date</label>
+                <input type="date" class="form-control" id="visitDate" th:field="*{visitDate}"
                        placeholder="Enter visit date">
                 <div th:if="${#fields.hasErrors('visitDate')}" th:errors="*{visitDate}"></div>
             </div>
