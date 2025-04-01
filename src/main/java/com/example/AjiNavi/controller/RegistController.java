@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequiredArgsConstructor
@@ -24,7 +25,7 @@ public class RegistController {
     }
 
     @PostMapping("/confirm-regist-review")
-    public String confirmRegistReview(@Validated @ModelAttribute ReviewForm form, BindingResult result, Model model) {
+    public String confirmRegistReview(@Validated @ModelAttribute ReviewForm form, BindingResult result, RedirectAttributes redirectAttributes) {
 
         if (result.hasErrors()) {
             return "regist-review";
@@ -34,9 +35,9 @@ public class RegistController {
 
         service.regist(r);
 
-        model.addAttribute("msg", "(レビュー登録)");
+        redirectAttributes.addFlashAttribute("msg", "(レビュー登録)");
 
-        return "complete";
+        return "redirect:/complete";
     }
 
 }
