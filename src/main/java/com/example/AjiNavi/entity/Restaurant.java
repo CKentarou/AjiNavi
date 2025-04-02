@@ -13,10 +13,10 @@ public class Restaurant {
     private String catchPhrase;
     private double averageRating;
 
-    public String formatAberageRating() {
+    public String formatAverageRating() {
         String result;
-        if (averageRating == 0) {
-            result = "評価なし";
+        if (averageRating == 0.0) {
+            result = "-";
         } else {
             result = String.format("%.1f", averageRating);
         }
