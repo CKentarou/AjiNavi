@@ -2,35 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/bootstrap.html :: head"></head>
 <body>
-<h2>レストラン検索</h2>
-<form th:action="@{restaurant-search}" method="post" th:object="${restaurantSearchForm}">
-    <div class="form-group">
-        <label for="restaurantName">レストラン名</label>
-        <input type="text" class="form-control" id="restaurantName" th:field="*{restaurantName}" placeholder="Enter restaurant name">
-    </div>
-    <button type="submit" class="btn btn-primary">検索</button>
-</form>
+<div class="container">
+    <h2>レストラン検索</h2>
+    <form th:action="@{restaurant-search}" method="post" th:object="${restaurantSearchForm}" class="form-inline">
+        <div class="form-group mb-2">
+            <label for="restaurantName" class="sr-only">レストラン名</label>
+            <input type="text" class="form-control" id="restaurantName" th:field="*{restaurantName}" placeholder="Enter restaurant name">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 ml-2">検索</button>
+    </form>
 
-<div th:if="${restaurantList} != null">
-  <h2>レストラン一覧</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>レストランID</th>
-            <th>レストラン名</th>
-            <th>キャッチフレーズ</th>
-            <th>平均評価</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="restaurant : ${restaurantList}">
-            <td th:text="${restaurant.restaurantId}"></td>
-            <td th:text="${restaurant.restaurantName}"></td>
-            <td th:text="${restaurant.catchPhrase}"></td>
-            <td th:text="${restaurant.formatAverageRating()}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div th:if="${restaurantList} != null">
+        <h2>レストラン一覧</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>レストランID</th>
+                    <th>レストラン名</th>
+                    <th>キャッチフレーズ</th>
+                    <th>平均評価</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="restaurant : ${restaurantList}">
+                    <td th:text="${restaurant.restaurantId}"></td>
+                    <td th:text="${restaurant.restaurantName}"></td>
+                    <td th:text="${restaurant.catchPhrase}"></td>
+                    <td th:text="${restaurant.formatAverageRating()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 </body>
 </html>
