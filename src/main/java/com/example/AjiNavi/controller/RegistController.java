@@ -19,10 +19,11 @@ public class RegistController {
 
     private final RegistService service;
 
-    @GetMapping("show-review-form")
+    @PostMapping("show-review-form")
     public String showReviewForm(@ModelAttribute ReviewForm form) {
         return "regist-review";
     }
+
 
     @PostMapping("/confirm-regist-review")
     public String confirmRegistReview(@Validated @ModelAttribute ReviewForm form, BindingResult result, RedirectAttributes redirectAttributes) {
