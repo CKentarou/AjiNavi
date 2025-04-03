@@ -11,6 +11,8 @@ public class ReviewForm {
     @Min(value=1, message="1以上の数字を入力して下さい")
     private Integer restaurantId;
 
+    private String restaurantName;
+
     @Size(min=4, max=16, message="4文字から16文字で指定してください。")
     private String userId;
 
