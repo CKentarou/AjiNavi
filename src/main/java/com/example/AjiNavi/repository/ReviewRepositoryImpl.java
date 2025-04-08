@@ -56,4 +56,10 @@ public class ReviewRepositoryImpl implements ReviewRepository {
 
         jdbcTemplete.update(sql, review.getUserId(), review.getVisitDate(), review.getRating(), review.getComment(), review.getReviewId());
     }
+
+    @Override
+    public void delete(Review review) {
+        String sql = "DELETE FROM t_review WHERE review_id = ?";
+        jdbcTemplete.update(sql, review.getReviewId());
+    }
 }
